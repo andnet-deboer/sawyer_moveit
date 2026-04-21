@@ -7,6 +7,7 @@
   <arg name="db" default="false" />
   <!-- By default, we are not in debug mode -->
   <arg name="debug" default="false" />
+  <arg name="use_gui" default="false" />
 
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
   <arg name="load_robot_description" default="false"/>
@@ -42,9 +43,9 @@
   <include file="$(find sawyer_moveit_config)/launch/move_group.launch">
     <arg name="kinect" value="$(arg kinect)" />
     <arg name="xtion" value="$(arg xtion)" />
-    <arg name="camera_link_pose" default="$(arg camera_link_pose)"/>
+    <arg name="camera_link_pose" value="$(arg camera_link_pose)"/>
     <arg name="allow_trajectory_execution" value="true"/>
-    <arg name="fake_execution" value="false"/>
+    <arg name="fake_execution" value="true"/>
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
